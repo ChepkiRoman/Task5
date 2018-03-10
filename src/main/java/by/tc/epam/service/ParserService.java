@@ -1,6 +1,7 @@
 package by.tc.epam.service;
 
 import by.tc.epam.dao.DomMenuParser;
+import by.tc.epam.dao.SaxMenuParser;
 import by.tc.epam.dao.StaxMenuParser;
 import by.tc.epam.entity.Food;
 import org.xml.sax.SAXException;
@@ -21,7 +22,8 @@ public class ParserService {
         result = StaxMenuParser.parse("/Users/RomanChepki/Documents/Programming/untitled3/src/main/resources/menu.xml");
         return  result;
     }
-    public List<Food> parseViaSax(){
+    public List<Food> parseViaSax() throws IOException, SAXException {
+        result = SaxMenuParser.parse("/Users/RomanChepki/Documents/Programming/untitled3/src/main/resources/menu.xml");
         return result;
     }
 }

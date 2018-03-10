@@ -25,13 +25,13 @@ public   class DomMenuParser {
             Element foodElement = (Element)foodNodes.item(i);
             food.setId(Integer.parseInt(foodElement.getAttribute("id")));
             food.setName(getSingleChild(foodElement,"name").getTextContent().trim());
-            food.setName(getSingleChild(foodElement,"description").getTextContent().trim());
+            food.setDescription(getSingleChild(foodElement,"description").getTextContent().trim());
+            food.setPrice(getSingleChild(foodElement,"price").getTextContent().trim());
+            food.setCalories(Integer.valueOf(getSingleChild(foodElement,"calories").getTextContent().trim()));
             foodList.add(food);
 
         }
         return foodList;
-
-
     }
 
     private static Element getSingleChild(Element element, String childElemnt) {

@@ -52,7 +52,7 @@ public class FrontController extends HttpServlet {
             request.setAttribute(CURRENT_PAGE_ATTR_NAME, page);
 
 
-            RequestDispatcher view = request.getRequestDispatcher("main.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/view.jsp");
             view.forward(request, response);
             foodList.clear();
         } catch (SAXException e) {
