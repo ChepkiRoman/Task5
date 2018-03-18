@@ -2,7 +2,7 @@ package by.tc.epam.dao;
 
 import by.tc.epam.entity.Food;
 import by.tc.epam.entity.MenuTagName;
-import by.tc.epam.entity.XMLStreamConstants;
+import by.tc.epam.dao.constant.XMLStreamConstants;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;

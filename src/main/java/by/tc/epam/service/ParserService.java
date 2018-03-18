@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class ParserService {
+
+
     private List<Food> result;
     public List<Food> parseViaDom() throws IOException, SAXException {
         result = DomMenuParser.parse("/Users/RomanChepki/Documents/Programming/untitled3/src/main/resources/menu.xml");
@@ -26,4 +28,10 @@ public class ParserService {
         result = SaxMenuParser.parse("/Users/RomanChepki/Documents/Programming/untitled3/src/main/resources/menu.xml");
         return result;
     }
+
+
+
+
+
+
 }

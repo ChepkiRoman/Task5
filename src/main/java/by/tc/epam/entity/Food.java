@@ -1,5 +1,7 @@
 package by.tc.epam.entity;
 
+import java.util.Objects;
+
 public class Food {
     private int id;
     private String name;
@@ -47,4 +49,32 @@ public class Food {
         this.calories = calories;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Food)) return false;
+        Food food = (Food) o;
+        return getId() == food.getId() &&
+                getCalories() == food.getCalories() &&
+                Objects.equals(getName(), food.getName()) &&
+                Objects.equals(getPrice(), food.getPrice()) &&
+                Objects.equals(getDescription(), food.getDescription());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getName(), getPrice(), getDescription(), getCalories());
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", description='" + description + '\'' +
+                ", calories=" + calories +
+                '}';
+    }
 }
