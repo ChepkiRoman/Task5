@@ -1,5 +1,6 @@
 package by.tc.epam.dao;
 
+import by.tc.epam.dao.exception.ParsingDAOException;
 import by.tc.epam.entity.Food;
 import by.tc.epam.entity.MenuTagName;
 import org.xml.sax.*;
@@ -19,13 +20,17 @@ public class SaxMenuParser extends DefaultHandler{
         return foodList;
     }
 
-    public static List<Food> parse(String path) throws IOException, SAXException {
-        XMLReader reader = XMLReaderFactory.createXMLReader();
-        SaxMenuParser handler = new SaxMenuParser();
-        reader.setContentHandler(handler);
-        reader.parse(new InputSource(path));
-        List<Food> foodList = handler.getFoodList();
-        return foodList;
+    public static List<Food> parse(String path) throws ParsingDAOException {
+        try {
+            XMLReader reader = XMLReaderFactory.createXMLReader();
+            SaxMenuParser handler = new SaxMenuParser();
+            reader.setContentHandler(handler);
+            reader.parse(new InputSource(path));
+            List<Food> foodList = handler.getFoodList();
+            return foodList;
+        }catch (IOException | SAXException e){
+            throw new ParsingDAOException("Exception occurred during reading the xml file", e);
+        }
 
     }
 

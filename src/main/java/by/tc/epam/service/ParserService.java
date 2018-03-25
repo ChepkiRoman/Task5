@@ -3,6 +3,7 @@ package by.tc.epam.service;
 import by.tc.epam.dao.DomMenuParser;
 import by.tc.epam.dao.SaxMenuParser;
 import by.tc.epam.dao.StaxMenuParser;
+import by.tc.epam.dao.exception.ParsingDAOException;
 import by.tc.epam.entity.Food;
 import org.xml.sax.SAXException;
 
@@ -15,16 +16,16 @@ public class ParserService {
 
 
     private List<Food> result;
-    public List<Food> parseViaDom() throws IOException, SAXException {
+    public List<Food> parseViaDom() throws IOException, SAXException, ParsingDAOException {
         result = DomMenuParser.parse("/Users/RomanChepki/Documents/Programming/untitled3/src/main/resources/menu.xml");
         return result;
     }
 
-    public List<Food> parseViaStax() throws FileNotFoundException, XMLStreamException {
+    public List<Food> parseViaStax() throws FileNotFoundException, XMLStreamException, ParsingDAOException {
         result = StaxMenuParser.parse("/Users/RomanChepki/Documents/Programming/untitled3/src/main/resources/menu.xml");
         return  result;
     }
-    public List<Food> parseViaSax() throws IOException, SAXException {
+    public List<Food> parseViaSax() throws IOException, SAXException, ParsingDAOException {
         result = SaxMenuParser.parse("/Users/RomanChepki/Documents/Programming/untitled3/src/main/resources/menu.xml");
         return result;
     }
